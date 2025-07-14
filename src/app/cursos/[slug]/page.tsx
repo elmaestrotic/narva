@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 // This is a basic mapping from slug to title.
@@ -20,6 +22,12 @@ const courseData: { [key: string]: { title: string; description: string } } = {
     description: 'Bienvenido al curso de Pedagogía con IA. Descubre cómo la inteligencia artificial puede transformar la educación.',
   },
 };
+
+export async function generateStaticParams() {
+  return Object.keys(courseData).map((slug) => ({
+    slug: slug,
+  }));
+}
 
 function getCourseDetails(slug: string) {
   return courseData[slug] || { title: 'Curso no encontrado', description: 'El curso que buscas no existe.' };
