@@ -67,6 +67,14 @@ export default function Home() {
       hint: "library study group",
       buttonText: "Contáctame",
       buttonLink: "#contacto"
+    },
+    {
+      title: "Innovación en el Aula",
+      description: "Aplicando las últimas tecnologías y metodologías para una experiencia de aprendizaje única y efectiva.",
+      image: "https://placehold.co/1920x1080.png",
+      hint: "modern classroom technology",
+      buttonText: "Ver Cursos",
+      buttonLink: "#clases"
     }
   ];
 
