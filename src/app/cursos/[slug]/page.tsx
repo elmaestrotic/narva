@@ -1,5 +1,3 @@
-"use client";
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 // This is a basic mapping from slug to title.
@@ -15,11 +13,11 @@ const courseData: { [key: string]: { title: string; description: string } } = {
   },
   'algoritmos-y-estructuras-de-datos-ii': {
     title: 'Algoritmos y Estructuras de Datos II',
-    description: 'Bienvenido al curso de Algoritmos y Estructuras de Datos II. Continuaremos nuestro viaje por estructuras y algoritmos avanzados.',
+    description: 'Continuaremos nuestro viaje por estructuras y algoritmos avanzados.',
   },
   'pedagogia-con-ia': {
     title: 'Pedagogía con IA',
-    description: 'Bienvenido al curso de Pedagogía con IA. Descubre cómo la inteligencia artificial puede transformar la educación.',
+    description: 'Descubre cómo la inteligencia artificial puede transformar la educación.',
   },
 };
 
