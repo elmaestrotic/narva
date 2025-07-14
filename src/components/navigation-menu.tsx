@@ -17,22 +17,22 @@ import {
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "Lenguajes y Paradigmas de Computación",
-    href: "#clases",
+    href: "/cursos/lenguajes-y-paradigmas-de-computacion",
     description: "Explora diferentes estilos de programación y la teoría detrás de los lenguajes.",
   },
   {
     title: "Algoritmos y Estructuras de Datos I",
-    href: "#clases",
+    href: "/cursos/algoritmos-y-estructuras-de-datos-i",
     description: "Introducción a las estructuras de datos fundamentales y análisis de algoritmos.",
   },
   {
     title: "Algoritmos y Estructuras de Datos II",
-    href: "#clases",
+    href: "/cursos/algoritmos-y-estructuras-de-datos-ii",
     description: "Estudio avanzado de algoritmos, complejidad y estructuras de datos complejas.",
   },
   {
     title: "Pedagogía con IA",
-    href: "#clases",
+    href: "/cursos/pedagogia-con-ia",
     description: "Aprende a integrar la Inteligencia Artificial en procesos educativos y de enseñanza.",
   },
 ]
@@ -43,7 +43,7 @@ export function NavMenu() {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="#clases">
+            <Link href="/#clases">
               Clases
             </Link>
           </NavigationMenuLink>
@@ -66,14 +66,14 @@ export function NavMenu() {
         </NavigationMenuItem>
         <NavigationMenuItem>
            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="#sobre-mi">
+            <Link href="/#sobre-mi">
               Sobre Mí
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="#contacto">
+            <Link href="/#contacto">
               Contacto
             </Link>
           </NavigationMenuLink>
@@ -86,11 +86,12 @@ export function NavMenu() {
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+>(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
+          href={href!}
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
@@ -102,7 +103,7 @@ const ListItem = React.forwardRef<
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>
-        </a>
+        </Link>
       </NavigationMenuLink>
     </li>
   )

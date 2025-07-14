@@ -17,25 +17,29 @@ export default function Home() {
       title: 'Lenguajes y Paradigmas de Computación',
       description: 'Explora diferentes estilos de programación y la teoría detrás de los lenguajes.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'programming languages'
+      hint: 'programming languages',
+      slug: 'lenguajes-y-paradigmas-de-computacion'
     },
     {
       title: 'Algoritmos y Estructuras de Datos I',
       description: 'Introducción a las estructuras de datos fundamentales y análisis de algoritmos.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'data structures'
+      hint: 'data structures',
+      slug: 'algoritmos-y-estructuras-de-datos-i'
     },
     {
       title: 'Algoritmos y Estructuras de Datos II',
       description: 'Estudio avanzado de algoritmos, complejidad y estructuras de datos complejas.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'algorithm complexity'
+      hint: 'algorithm complexity',
+      slug: 'algoritmos-y-estructuras-de-datos-ii'
     },
     {
       title: 'Pedagogía con IA',
       description: 'Aprende a integrar la Inteligencia Artificial en procesos educativos y de enseñanza.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'ai education'
+      hint: 'ai education',
+      slug: 'pedagogia-con-ia'
     },
   ];
 
@@ -134,23 +138,25 @@ export default function Home() {
                 <CarouselContent>
                   {featuredClasses.map((clase, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                      <div className="p-1">
-                        <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105">
-                          <CardHeader className="p-0">
-                            <Image
-                              src={clase.image}
-                              width={600}
-                              height={400}
-                              alt={clase.title}
-                              data-ai-hint={clase.hint}
-                              className="rounded-t-lg object-cover w-full aspect-[3/2]"
-                            />
-                          </CardHeader>
-                          <CardContent className="flex-grow flex flex-col text-center p-6 space-y-2">
-                             <CardTitle className="font-headline text-2xl">{clase.title}</CardTitle>
-                            <CardDescription className="font-body flex-grow">{clase.description}</CardDescription>
-                          </CardContent>
-                        </Card>
+                      <div className="p-1 h-full">
+                        <Link href={`/cursos/${clase.slug}`} className="block h-full">
+                          <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:scale-105">
+                            <CardHeader className="p-0">
+                              <Image
+                                src={clase.image}
+                                width={600}
+                                height={400}
+                                alt={clase.title}
+                                data-ai-hint={clase.hint}
+                                className="rounded-t-lg object-cover w-full aspect-[3/2]"
+                              />
+                            </CardHeader>
+                            <CardContent className="flex-grow flex flex-col text-center p-6 space-y-2">
+                              <CardTitle className="font-headline text-2xl">{clase.title}</CardTitle>
+                              <CardDescription className="font-body flex-grow">{clase.description}</CardDescription>
+                            </CardContent>
+                          </Card>
+                        </Link>
                       </div>
                     </CarouselItem>
                   ))}
