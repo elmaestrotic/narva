@@ -1,5 +1,9 @@
+"use client"
+
 import Image from 'next/image';
 import Link from 'next/link';
+import Autoplay from "embla-carousel-autoplay"
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -35,42 +39,81 @@ export default function Home() {
     },
   ];
 
+  const heroSlides = [
+    {
+      title: "Educación de Calidad a tu Alcance",
+      description: "Mi objetivo es brindarte una educación de calidad con pasión y dedicación, fomentando el pensamiento crítico y la resolución de problemas.",
+      image: "https://placehold.co/1920x1080.png",
+      hint: "university classroom students",
+      buttonText: "Explorar Clases",
+      buttonLink: "#clases"
+    },
+    {
+      title: "Inspirando a la Próxima Generación",
+      description: "Con más de 15 años de experiencia, mi misión es inspirar a la próxima generación de ingenieros y científicos a través del aprendizaje práctico.",
+      image: "https://placehold.co/1920x1080.png",
+      hint: "teacher helping student",
+      buttonText: "Sobre Mí",
+      buttonLink: "#sobre-mi"
+    },
+    {
+      title: "Recursos y Asesorías Personalizadas",
+      description: "Encuentra aquí todos los recursos para mis clases. Si tienes alguna pregunta o necesitas asesoría, no dudes en ponerte en contacto.",
+      image: "https://placehold.co/1920x1080.png",
+      hint: "library study group",
+      buttonText: "Contáctame",
+      buttonLink: "#contacto"
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-dvh bg-background">
       <Header />
 
       <main className="flex-1">
-        <section className="w-full pt-24 md:pt-32 lg:pt-40 pb-12 md:pb-24 lg:pb-32">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-4">
-                  <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline text-primary">
-                    Clases con Narvá - Universidad EAFIT
-                  </h1>
-                  <p className="max-w-[600px] text-foreground/80 md:text-xl font-body">
-                    Bienvenido. Aquí encontrarás recursos, horarios y toda la información relevante para mis clases. Mi objetivo es brindarte una educación de calidad con pasión y dedicación.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button asChild size="lg">
-                    <Link href="#clases" prefetch={false}>Explorar Clases</Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <Link href="#contacto" prefetch={false}>Contáctame</Link>
-                  </Button>
-                </div>
-              </div>
-              <Image
-                src="https://placehold.co/600x600.png"
-                width="600"
-                height="600"
-                alt="Profesor Narvá"
-                data-ai-hint="male professor"
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-              />
-            </div>
-          </div>
+      <section className="relative w-full h-dvh min-h-[600px] flex items-center justify-center">
+          <Carousel
+            opts={{ loop: true }}
+            className="w-full h-full"
+            plugins={[
+              Autoplay({
+                delay: 5000,
+                stopOnInteraction: true,
+              }),
+            ]}
+          >
+            <CarouselContent className="h-full">
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={index} className="h-full">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={slide.hint}
+                    />
+                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="container px-4 md:px-6 text-center text-white space-y-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight">
+                          {slide.title}
+                        </h1>
+                        <p className="max-w-3xl mx-auto text-lg md:text-xl lg:text-2xl font-body">
+                          {slide.description}
+                        </p>
+                        <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                          <Link href={slide.buttonLink} prefetch={false}>{slide.buttonText}</Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white border-white hover:bg-white/20 hover:text-white" />
+            <CarouselNext className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white border-white hover:bg-white/20 hover:text-white" />
+          </Carousel>
         </section>
 
         <section id="clases" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
