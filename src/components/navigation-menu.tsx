@@ -16,28 +16,24 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Cálculo Diferencial",
+    title: "Lenguajes y Paradigmas de Computación",
     href: "#clases",
-    description:
-      "Fundamentos del cálculo, límites, derivadas y aplicaciones.",
+    description: "Explora diferentes estilos de programación y la teoría detrás de los lenguajes.",
   },
   {
-    title: "Álgebra Lineal",
+    title: "Algoritmos y Estructuras de Datos I",
     href: "#clases",
-    description:
-      "Vectores, matrices, espacios vectoriales y transformaciones lineales.",
+    description: "Introducción a las estructuras de datos fundamentales y análisis de algoritmos.",
   },
   {
-    title: "Física Mecánica",
+    title: "Algoritmos y Estructuras de Datos II",
     href: "#clases",
-    description:
-      "Estudio del movimiento, las fuerzas, la energía y la conservación.",
+    description: "Estudio avanzado de algoritmos, complejidad y estructuras de datos complejas.",
   },
   {
-    title: "Programación de Computadores",
+    title: "Pedagogía con IA",
     href: "#clases",
-    description:
-      "Introducción a la lógica de programación y algoritmos.",
+    description: "Aprende a integrar la Inteligencia Artificial en procesos educativos y de enseñanza.",
   },
 ]
 

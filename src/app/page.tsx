@@ -14,28 +14,28 @@ import { Header } from '@/components/header-scroll';
 export default function Home() {
   const featuredClasses = [
     {
-      title: 'Cálculo Diferencial',
-      description: 'Fundamentos del cálculo, límites, derivadas y sus aplicaciones en problemas del mundo real.',
+      title: 'Lenguajes y Paradigmas de Computación',
+      description: 'Explora diferentes estilos de programación y la teoría detrás de los lenguajes.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'mathematics books'
+      hint: 'programming languages'
     },
     {
-      title: 'Álgebra Lineal',
-      description: 'Explora vectores, matrices, espacios vectoriales y transformaciones lineales.',
+      title: 'Algoritmos y Estructuras de Datos I',
+      description: 'Introducción a las estructuras de datos fundamentales y análisis de algoritmos.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'abstract algebra'
+      hint: 'data structures'
     },
     {
-      title: 'Física Mecánica',
-      description: 'Estudio del movimiento, las fuerzas, la energía y la conservación en sistemas físicos.',
+      title: 'Algoritmos y Estructuras de Datos II',
+      description: 'Estudio avanzado de algoritmos, complejidad y estructuras de datos complejas.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'physics gravity'
+      hint: 'algorithm complexity'
     },
     {
-      title: 'Programación de Computadores',
-      description: 'Introducción a la lógica de programación y al desarrollo de algoritmos eficientes.',
+      title: 'Pedagogía con IA',
+      description: 'Aprende a integrar la Inteligencia Artificial en procesos educativos y de enseñanza.',
       image: 'https://placehold.co/600x400.png',
-      hint: 'programming code'
+      hint: 'ai education'
     },
   ];
 
