@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { NavMenu } from "./navigation-menu";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,11 +25,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        "px-4 lg:px-6 h-16 flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-background/95 shadow-lg border-b" : "bg-transparent border-b border-transparent"
+        "px-4 lg:px-6 h-20 flex items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled ? "bg-background/95 shadow-lg border-b" : "bg-transparent"
       )}
     >
-      <Link href="#" className="flex items-center justify-center" prefetch={false}>
+      <Link href="#" className="flex items-center justify-center mr-6" prefetch={false}>
         <svg
           width="32"
           height="32"
@@ -49,16 +50,8 @@ export function Header() {
         </svg>
         <span className="sr-only">Narvá Classes</span>
       </Link>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
-        <Link href="#clases" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-          Clases
-        </Link>
-        <Link href="#sobre-mi" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-          Sobre Mí
-        </Link>
-        <Link href="#contacto" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-          Contacto
-        </Link>
+      <nav className="ml-auto">
+        <NavMenu />
       </nav>
     </header>
   );
