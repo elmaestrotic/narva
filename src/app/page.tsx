@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { BookOpen, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import { Header } from '@/components/header-scroll';
 
 export default function Home() {
   const featuredClasses = [
@@ -36,27 +37,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-dvh bg-background">
-      <header className="px-4 lg:px-6 h-16 flex items-center bg-background/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b">
-        <Link href="#" className="flex items-center justify-center" prefetch={false}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
-            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span className="sr-only">Narvá Classes</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link href="#clases" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Clases
-          </Link>
-          <Link href="#sobre-mi" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Sobre Mí
-          </Link>
-          <Link href="#contacto" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
-            Contacto
-          </Link>
-        </nav>
-      </header>
+      <Header />
 
       <main className="flex-1">
         <section className="w-full pt-24 md:pt-32 lg:pt-40 pb-12 md:pb-24 lg:pb-32">
