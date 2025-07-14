@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: 30 14% 91%; /* Original Light: rgb(235, 232, 230) */
-    --foreground: 20 14% 4%; /* Dark Brown */
-    --card: 30 14% 96%; /* Slightly lighter than background */
+    --background: 30 14% 91%;
+    --foreground: 20 14% 4%;
+    --card: 30 14% 96%;
     --card-foreground: 20 14% 4%;
     --popover: 30 14% 96%;
     --popover-foreground: 20 14% 4%;
-    --primary: 25 95% 53%; /* Bright Orange/Peach - THIS WILL BE OVERWRITTEN */
+    --primary: 25 95% 53%;
     --primary-foreground: 20 14% 4%;
-    --secondary: 40 100% 95%; /* Light Vanilla */
+    --secondary: 40 100% 95%;
     --secondary-foreground: 20 14% 4%;
     --muted: 30 14% 86%;
     --muted-foreground: 20 14% 25%;
@@ -39,13 +39,13 @@
     --sidebar-ring: hsl(var(--primary));
   }
   .dark {
-    --background: 220 14% 10%; /* Dark Slate Gray */
-    --foreground: 210 20% 98%; /* Almost White */
+    --background: 220 14% 10%;
+    --foreground: 210 20% 98%;
     --card: 220 14% 15%;
     --card-foreground: 210 20% 98%;
     --popover: 220 14% 10%;
     --popover-foreground: 210 20% 98%;
-    --primary: 150 70% 45%; /* Muted Green - THIS WILL BE OVERWRITTEN */
+    --primary: 150 70% 45%;
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14% 20%;
     --secondary-foreground: 210 20% 98%;
