@@ -22,7 +22,7 @@ const lightColors = [
   { name: 'Default (Naranja)', hsl: '25 95% 53%' },
   { name: 'Vainilla', hsl: '43 74% 66%' },
   { name: 'Melocotón', hsl: '30 90% 60%' },
-  { name: 'Azul EAFIT', hsl: '212 72% 48%' }, // Deep Blue
+  { name: 'Azul EAFIT', hsl: '212 72% 48%' }, 
   { name: 'Verde Menta', hsl: '150 60% 50%' },
 ];
 
@@ -38,37 +38,39 @@ export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
   
-  // Use a separate state for light and dark theme colors to persist selection
   const [lightColor, setLightColor] = React.useState(lightColors[0].hsl);
   const [darkColor, setDarkColor] = React.useState(darkColors[0].hsl);
 
   React.useEffect(() => {
     setMounted(true)
     const storedLightColor = localStorage.getItem('light-theme-color');
-    if (storedLightColor) {
-      setLightColor(storedLightColor);
-      if (resolvedTheme === 'light') {
-        setCssVariable('--primary', storedLightColor);
-      }
-    }
     const storedDarkColor = localStorage.getItem('dark-theme-color');
-    if (storedDarkColor) {
-      setDarkColor(storedDarkColor);
-       if (resolvedTheme === 'dark') {
-        setCssVariable('--primary', storedDarkColor);
+    
+    if (storedLightColor) setLightColor(storedLightColor);
+    if (storedDarkColor) setDarkColor(storedDarkColor);
+
+  }, [])
+
+  React.useEffect(() => {
+    if (mounted) {
+      if (resolvedTheme === 'light') {
+        setCssVariable('--primary', lightColor);
+      } else {
+        setCssVariable('--primary', darkColor);
       }
     }
-  }, [resolvedTheme])
+  }, [mounted, resolvedTheme, lightColor, darkColor])
   
   const handleColorChange = (hsl: string) => {
     if (resolvedTheme === 'light') {
       setLightColor(hsl);
       localStorage.setItem('light-theme-color', hsl);
+      setCssVariable('--primary', hsl);
     } else {
       setDarkColor(hsl);
       localStorage.setItem('dark-theme-color', hsl);
+      setCssVariable('--primary', hsl);
     }
-    setCssVariable('--primary', hsl);
   };
   
   const currentPalette = resolvedTheme === 'dark' ? darkColors : lightColors;
