@@ -77,7 +77,7 @@ export default function Home() {
             className="w-full h-full"
             plugins={[
               Autoplay({
-                delay: 5000,
+                delay: 2000,
                 stopOnInteraction: true,
               }),
             ]}
