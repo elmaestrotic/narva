@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { NavMenu } from "./navigation-menu";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +30,7 @@ export function Header() {
         scrolled ? "bg-background/95 shadow-lg border-b" : "bg-transparent"
       )}
     >
-      <Link href="#" className="flex items-center justify-center mr-6" prefetch={false}>
+      <Link href="/" className="flex items-center justify-center mr-6" prefetch={false}>
         <svg
           width="32"
           height="32"
@@ -50,9 +51,10 @@ export function Header() {
         </svg>
         <span className="sr-only">Narvá Classes</span>
       </Link>
-      <nav className="ml-auto">
+      <div className="ml-auto flex items-center gap-4">
         <NavMenu />
-      </nav>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }
