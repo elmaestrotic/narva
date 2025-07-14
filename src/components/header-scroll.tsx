@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { NavMenu } from "./navigation-menu";
 import { ThemeToggle } from "./theme-toggle";
+import { BookUser } from "lucide-react";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,24 +32,7 @@ export function Header() {
       )}
     >
       <Link href="/" className="flex items-center justify-center mr-6" prefetch={false}>
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-primary"
-        >
-          <path
-            d="M12 2L2 7L12 12L22 7L12 2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <BookUser className="h-8 w-8 text-primary" />
         <span className="sr-only">Narvá Classes</span>
       </Link>
       <div className="ml-auto flex items-center gap-4">
