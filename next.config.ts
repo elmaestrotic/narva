@@ -1,6 +1,6 @@
 import type {NextConfig} from 'next';
 
-const repo = 'nextn';
+const repo = 'narva';
 const assetPrefix = `/${repo}/`;
 const basePath = `/${repo}`;
 
