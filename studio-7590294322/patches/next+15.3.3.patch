@@ -1,0 +1,41 @@
+diff --git a/node_modules/next/dist/export/helpers/is-dynamic-usage-error.js b/node_modules/next/dist/export/helpers/is-dynamic-usage-error.js
+index 451a5c6..77174e9 100644
+--- a/node_modules/next/dist/export/helpers/is-dynamic-usage-error.js
++++ b/node_modules/next/dist/export/helpers/is-dynamic-usage-error.js
+@@ -10,6 +10,10 @@
+     // an error that is related to dynamic usage.
+     return ((err.digest?.startsWith("DYNAMIC_SERVER_USAGE") || (0, _isdynamicusageerror.isDynamicUsageError)(err)) &&
+         !(0, _patchincorrectwebpackpluginoutput.isPatchIncorrectWebpackPluginOutputError)(err));
++}
++Object.defineProperty(exports, "isDynamicUsageError", {
++    enumerable: true,
++    get: ()=>isDynamicUsageError
+ });
+ //# sourceMappingURL=is-dynamic-usage-error.js.map
+\ No newline at end of file
+diff --git a/node_modules/next/dist/server/web/spec-extension/adapters/next-request.js b/node_modules/next/dist/server/web/spec-extension/adapters/next-request.js
+index 998f4fe..652e008 100644
+--- a/node_modules/next/dist/server/web/spec-extension/adapters/next-request.js
++++ b/node_modules/next/dist/server/web/spec-extension/adapters/next-request.js
+@@ -21,7 +21,7 @@
+         this.request = request;
+         this.context = context;
+         this.originalRequest = originalRequest;
+-        this.assetPrefix = this.context.assetPrefix ?? "";
++        this.assetPrefix = this.context.assetPrefix ?? ".";
+     }
+     get url() {
+         return this.request.url;
+diff --git a/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js b/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js
+index 8c9c0b1..431b9d4 100644
+--- a/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js
++++ b/node_modules/next/dist/shared/lib/router/utils/add-path-prefix.js
+@@ -8,6 +8,6 @@
+     }
+     return `${prefix}${path}`;
+ }
+-Object.defineProperty(exports, "addPathPrefix", { enumerable: true, get: function() { return addPathPrefix; } });
++Object.defineProperty(exports, "addPathPrefix", { enumerable: true, get: ()=>addPathPrefix });
+ 
+ //# sourceMappingURL=add-path-prefix.js.map
+\ No newline at end of file
